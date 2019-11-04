@@ -10,5 +10,17 @@
   "license": "ISC",
   "bin": {
     "ittakes": "./index.js"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larsonnn/ittakes.git"
+  },
+  "keywords": [
+    "time",
+    "measurement"
+  ],
+  "bugs": {
+    "url": "https://github.com/larsonnn/ittakes/issues"
+  },
+  "homepage": "https://github.com/larsonnn/ittakes#readme"
 }

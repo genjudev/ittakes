@@ -11,8 +11,5 @@ function execute(cmd, callback){
 
 execute(args, data => {
     const endTime = new Date() - startTime;
-    console.info('it takes: %dms\n\nOutput:\n%s', 
-        endTime, 
-        data.trim()
-    );
+    console.info("%s\n\nit takes: %dms",  data.trim(), endTime);
 });

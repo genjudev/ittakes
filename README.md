@@ -2,7 +2,7 @@
 
 just do something like: 
 ```
-ittakes echo "hello world...
+ittakes echo "hello world..."
 ```
 
 output:

@@ -6,10 +6,11 @@ const args = process.argv.slice(2).join(' ');
 const startTime = new Date();
 
 function execute(cmd, callback){
-    exec(cmd, function(error, stdout, stderr){ callback(stdout); });
+    exec(cmd, function(error, stdout, stderr){ callback(stdout, stderr); });
 };
 
-execute(args, data => {
+execute(args, (out, err) => {
     const endTime = new Date() - startTime;
-    console.info("%s\n\nit takes: %dms",  data.trim(), endTime);
+    if (err) console.info(err);
+    console.info("%s\n\nit takes: %dms", out.trim(), endTime);
 });

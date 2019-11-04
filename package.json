@@ -22,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/larsonnn/ittakes/issues"
   },
-  "homepage": "https://github.com/larsonnn/ittakes#readme"
+  "homepage": "https://github.com/larsonnn/ittakes#readme",
+  "dependencies": {}
 }

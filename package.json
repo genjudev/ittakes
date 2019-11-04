@@ -1,0 +1,14 @@
+{
+  "name": "ittakes",
+  "version": "1.0.0",
+  "description": "measure how long it takes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lars Feldeisen",
+  "license": "ISC",
+  "bin": {
+    "ittakes": "./index.js"
+  }
+}

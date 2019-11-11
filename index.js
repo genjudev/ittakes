@@ -1,16 +1,49 @@
 #!/usr/bin/env node
+const help = require("./help");
+const exec = require("child_process").exec;
 
-const exec = require('child_process').exec;
-const args = process.argv.slice(2).join(' ');
+const argsAsObject = (args) => {
+    let options = [];
+    let cmd = "";
 
-const startTime = new Date();
+    for (let i = 0; i < args.length; i++) {
+        if (args[i].startsWith("-c")) {
+            options = args.slice(0, i);
+            cmd = args.slice(i + 1).join(" ");
+        }
+    }
 
-function execute(cmd, callback){
-    exec(cmd, function(error, stdout, stderr){ callback(stdout, stderr); });
+    return {
+        getOptions: () => {
+            return options;
+        },
+        getCmd: () => {
+            return cmd;
+        }
+    }
 };
 
-execute(args, (out, err) => {
+const execute = (cmd, callback) => {
+    exec(cmd, function (error, stdout, stderr) { callback(stdout, stderr); });
+};
+
+const args = argsAsObject(process.argv.slice(2));
+const startTime = new Date();
+
+// print HELP and exit
+if (args.getOptions().indexOf("-h") > -1) {
+    help();
+    process.exit(0);
+}
+
+execute(args.getCmd(), (out, err) => {
     const endTime = new Date() - startTime;
+
     if (err) console.info(err);
-    console.info("%s\n\nit takes: %dms", out.trim(), endTime);
+
+    console.info(
+        "%s\n\nit takes: %s",
+        out.trim(),
+        args.getOptions().indexOf("-s") > -1 ? `${(endTime / 1000)}s` : `${endTime}ms`,
+    );
 });

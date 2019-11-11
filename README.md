@@ -1,15 +1,19 @@
 ## ittakes
 
-just do something like: 
 ```
-ittakes echo "hello world..."
+Usage: ittakes [OPTION]... -c [CMD]
+
+  -s prints time in seconds
 ```
 
-output:
-
+just do something like
 ```
-it takes: 6ms
+ittakes -c echo "hello world..."
+```
 
-Output:
-hello world..
+Output
+```
+hello world...
+
+it takes: 16ms
 ```

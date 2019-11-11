@@ -8,8 +8,10 @@ const argsAsObject = (args) => {
 
     for (let i = 0; i < args.length; i++) {
         if (args[i].startsWith("-c")) {
-            options = args.slice(0, i);
             cmd = args.slice(i + 1).join(" ");
+            break;
+        } else {
+            options.push(args[i]);
         }
     }
 
@@ -31,7 +33,7 @@ const args = argsAsObject(process.argv.slice(2));
 const startTime = new Date();
 
 // print HELP and exit
-if (args.getOptions().indexOf("-h") > -1) {
+if (args.getOptions().indexOf("-h") > -1 || args.getCmd() === "") {
     help();
     process.exit(0);
 }
